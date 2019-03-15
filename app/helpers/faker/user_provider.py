@@ -4,7 +4,7 @@ import faker.providers
 import random
 
 from app import models as m
-from app.tests.faker import fake
+from app.helpers.faker import fake
 
 __author__ = 'Kien'
 _logger = logging.getLogger(__name__)

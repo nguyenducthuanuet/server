@@ -4,7 +4,6 @@ import logging
 
 from app import models as m
 from app.tests.api import APITestCase
-from app.tests.faker import fake
 
 __author__ = 'Kien'
 _logger = logging.getLogger(__name__)
