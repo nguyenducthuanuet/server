@@ -49,6 +49,13 @@ flask db upgrade
 
 Open the following url on your browser to view swagger documentation
 [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
+### Application error monitoring
+Using https://sentry.io for error report. Error report is disabled by default.  
+To enable
+- Go to https://sentry.io register new account, create new flask project, get new dsn
+- Replace SENTRY_DSN by new dsn
+- Set SEND_REPORT variable in .env to true
+
 ### Application folder structure
 #### Split by modules
 Separate components of our app into a group of inter-connected modules  
@@ -82,6 +89,7 @@ Each module is spitted by repository pattern
 - Pytest: testing framework https://docs.pytest.org/en/latest/
 - SqlAlchemy: orm http://flask-sqlalchemy.pocoo.org/2.3/
 - Faker: data faker for test https://faker.readthedocs.io/en/master/
+- Sentry: error report https://sentry.io
 
 ### Contributing
 If you want to contribute to this boilerplate, clone the repository and just start making pull requests.

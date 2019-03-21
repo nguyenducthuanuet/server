@@ -12,6 +12,8 @@ from app.extensions.sentry import before_send
 __author__ = 'ThucNC'
 _logger = logging.getLogger(__name__)
 
+SENTRY_DSN = 'SENTRY_DSN'
+
 
 def create_app():
     import config
@@ -39,7 +41,7 @@ def create_app():
     load_app_config(app)
 
     # Register new flask project here and get new dsn: https://sentry.io
-    dns = 'SENTRY_DSN' if os.environ.get(
+    dns = SENTRY_DSN if os.environ.get(
         'SEND_REPORT') == 'true' else None
 
     app.config['SENTRY_CONFIG'] = {
