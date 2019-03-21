@@ -1,5 +1,6 @@
 # coding=utf-8
 import logging
+
 from sqlalchemy import or_
 
 from app import models as m
@@ -36,4 +37,3 @@ def find_one_by_email_or_username_ignore_case(email, username):
     ).first()  # type: m.User
 
     return user or None
-

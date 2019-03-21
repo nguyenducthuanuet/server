@@ -1,8 +1,9 @@
 # coding=utf-8
+import json
 import logging
 import unittest
+
 import pytest
-import json
 
 __author__ = 'Kien'
 _logger = logging.getLogger(__name__)

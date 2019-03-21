@@ -23,11 +23,12 @@ def create_user(username, email, password, fullname="", role="", **kwargs):
     :rtype: m.User
     """
     if (
-        username and len(username) < 50 and
-        email and re.match(r"[^@]+@[^\.]+\..+", email) and
-        password and re.match(r"^[A-Za-z0-9]{6,}$", password)
+            username and len(username) < 50 and
+            email and re.match(r"[^@]+@[^\.]+\..+", email) and
+            password and re.match(r"^[A-Za-z0-9]{6,}$", password)
     ):
-        existed_user = repositories.user.find_one_by_email_or_username_ignore_case(email, username)
+        existed_user = repositories.user.find_one_by_email_or_username_ignore_case(
+            email, username)
         if existed_user:
             raise BadRequestException(
                 "User with username {username} "
@@ -47,4 +48,3 @@ def create_user(username, email, password, fullname="", role="", **kwargs):
         return user
     else:
         raise BadRequestException("Invalid user data specified!")
-

@@ -1,5 +1,6 @@
 # coding=utf-8
 import logging
+
 from app.extensions import reqparse
 
 __author__ = 'ThucNC'

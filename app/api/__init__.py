@@ -1,7 +1,8 @@
 # coding=utf-8
 import logging
-from flask_restplus import Api
+
 from flask import Blueprint
+from flask_restplus import Api
 
 from app.extensions.exceptions import global_error_handler
 from .user import ns as user_ns

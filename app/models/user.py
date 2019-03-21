@@ -1,9 +1,10 @@
 # coding=utf-8
-import logging
-import enum
 import datetime
+import enum
+import logging
 
 from flask_restplus import fields
+
 from app.models import db, bcrypt, TimestampMixin
 
 __author__ = 'ThucNC'

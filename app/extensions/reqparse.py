@@ -22,7 +22,8 @@ class RequestParser(BaseRequestParser):
 
         # A record of arguments not yet parsed; as each is found
         # among self.args, it will be popped out
-        req.unparsed_arguments = dict(self.argument_class('').source(req)) if strict else {}
+        req.unparsed_arguments = dict(
+            self.argument_class('').source(req)) if strict else {}
         errors = {}
         for arg in self.args:
             value, found = arg.parse(req, self.bundle_errors)

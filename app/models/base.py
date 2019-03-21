@@ -18,9 +18,11 @@ class TimestampMixin(object):
     @declared_attr
     def created_at(self):
         return _sa.Column(_sa.TIMESTAMP,
-                          server_default=func.now(), default=func.now(), nullable=False)
+                          server_default=func.now(), default=func.now(),
+                          nullable=False)
 
     @declared_attr
     def updated_at(self):
-        return _sa.Column(_sa.TIMESTAMP, server_default=func.now(), default=func.now(),
+        return _sa.Column(_sa.TIMESTAMP, server_default=func.now(),
+                          default=func.now(),
                           nullable=False, onupdate=func.now())

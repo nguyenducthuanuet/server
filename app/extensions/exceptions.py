@@ -2,8 +2,8 @@ import logging
 
 from werkzeug.exceptions import HTTPException as BaseHTTPException
 
-from app.extensions.response_wrapper import wrap_response
 from app import models as m
+from app.extensions.response_wrapper import wrap_response
 
 _logger = logging.getLogger(__name__)
 

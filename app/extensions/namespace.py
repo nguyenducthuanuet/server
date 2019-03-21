@@ -32,22 +32,28 @@ class Namespace(OriginalNamespace):
         if its different from 200
         :param description: optional description
         """
+
         def wrapper(func):
             doc = {
                 'responses': {
-                    code: (description, [fields]) if as_list else (description, fields)
+                    code: (description, [fields]) if as_list else (
+                        description, fields)
                 },
-                '__mask__': kwargs.get('mask', True),  # Mask values can't be determined outside app context
+                '__mask__': kwargs.get('mask', True),
+                # Mask values can't be determined outside app context
             }
             func.__apidoc__ = merge(getattr(func, '__apidoc__', {}), doc)
             return marshal_with(fields, ordered=self.ordered, **kwargs)(func)
+
         return wrapper
 
 
 class marshal_with(object):
     """A decorator that apply marshalling to the return values of your methods.
     """
-    def __init__(self, fields, envelope=None, skip_none=False, mask=None, ordered=False):
+
+    def __init__(self, fields, envelope=None, skip_none=False, mask=None,
+                 ordered=False):
         """
         :param fields: a dict of whose keys will make up the final
                        serialized response output
@@ -83,5 +89,8 @@ class marshal_with(object):
                     headers
                 )
             else:
-                return wrap_response(marshal(resp, self.fields, self.envelope, self.skip_none, mask, self.ordered))
+                return wrap_response(
+                    marshal(resp, self.fields, self.envelope, self.skip_none,
+                            mask, self.ordered))
+
         return wrapper

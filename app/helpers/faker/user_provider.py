@@ -1,7 +1,8 @@
 # coding=utf-8
 import logging
-import faker.providers
 import random
+
+import faker.providers
 
 from app import models as m
 from app.helpers.faker import fake
@@ -25,4 +26,3 @@ class UserProvider(faker.providers.BaseProvider):
         m.db.session.flush()
 
         return user
-

@@ -1,8 +1,8 @@
 # coding=utf-8
 import logging
 
-from flask import request
 import flask_restplus as _fr
+from flask import request
 
 from app import services, models
 from app.extensions import Namespace
@@ -13,7 +13,8 @@ _logger = logging.getLogger(__name__)
 ns = Namespace('users', description='User operations')
 
 _user_res = ns.model('user_res', models.UserSchema.user)
-_user_create_req = ns.model('user_create_req', models.UserSchema.user_create_req)
+_user_create_req = ns.model('user_create_req',
+                            models.UserSchema.user_create_req)
 
 
 @ns.route('/', methods=['GET', 'POST'])

@@ -1,8 +1,6 @@
 # coding=utf-8
 import logging
 
-from app.helpers import json_encode
-
 __author__ = 'ThucNC'
 _logger = logging.getLogger(__name__)
 

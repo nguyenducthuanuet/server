@@ -1,15 +1,10 @@
 # coding=utf-8
 import logging
-import os
 
 import pytest
 
-import config
-
 __author__ = 'Kien'
 _logger = logging.getLogger(__name__)
-
-TEST_DIR = os.path.join(config.ROOT_DIR, 'tests')
 
 
 @pytest.fixture(autouse=True)

@@ -1,13 +1,12 @@
 # coding=utf-8
 import logging
 
-import flask_sqlalchemy as _fs
-import flask_migrate as _fm
 import flask_bcrypt as _fb
+import flask_migrate as _fm
+import flask_sqlalchemy as _fs
 
 __author__ = 'Kien'
 _logger = logging.getLogger(__name__)
-
 
 db = _fs.SQLAlchemy()
 migrate = _fm.Migrate(db=db)

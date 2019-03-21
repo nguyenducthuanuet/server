@@ -1,6 +1,13 @@
 # coding=utf-8
 import logging
+
 import flask
+import sentry_sdk
+from sentry_sdk.integrations.flask import FlaskIntegration
+
+from app.extensions.exceptions import NotFoundException, \
+    UnAuthorizedException, BadRequestException, ForbiddenException
+from app.extensions.sentry import before_send
 
 __author__ = 'ThucNC'
 _logger = logging.getLogger(__name__)
@@ -30,6 +37,24 @@ def create_app():
     )
     app.json_encoder = helpers.JSONEncoder
     load_app_config(app)
+
+    # Register new flask project here and get new dsn: https://sentry.io
+    dns = 'SENTRY_DSN' if os.environ.get(
+        'SEND_REPORT') == 'true' else None
+
+    app.config['SENTRY_CONFIG'] = {
+        'ignore_exceptions': [NotFoundException, UnAuthorizedException,
+                              BadRequestException, ForbiddenException],
+        'level': logging.ERROR,
+    }
+
+    sentry_sdk.init(
+        dsn=dns,
+        integrations=[FlaskIntegration()],
+        environment=app.config['ENV_MODE'],
+        in_app_exclude=['app.extensions.exceptions'],
+        before_send=before_send
+    )
 
     # setup logging
     logging.config.fileConfig(app.config['LOGGING_CONFIG_FILE'],
