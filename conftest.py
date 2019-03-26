@@ -9,8 +9,8 @@ _logger = logging.getLogger(__name__)
 
 @pytest.fixture(autouse=True)
 def app(request):
-    from app import app
-    from app.models import db
+    from boilerplate import app
+    from boilerplate.models import db
 
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'
 

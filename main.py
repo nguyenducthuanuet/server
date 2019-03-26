@@ -1,7 +1,7 @@
 # coding=utf-8
 import logging
 import os
-from app import app
+from boilerplate import app
 from dotenv import load_dotenv
 
 __author__ = 'Kien'
