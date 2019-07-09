@@ -16,3 +16,4 @@ requests==2.18.4
 Flask-Bcrypt==0.7.1
 faker==1.0.4
 sentry-sdk[flask]==0.7.7
+Flask-Cors==3.0.8
