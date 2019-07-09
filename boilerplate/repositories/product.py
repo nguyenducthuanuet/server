@@ -17,7 +17,7 @@ def save_product_to_database(**kwargs):
     """
     product = m.Product(**kwargs)
     m.db.session.add(product)
-
+    m.db.session.commit()
     return product
 
 

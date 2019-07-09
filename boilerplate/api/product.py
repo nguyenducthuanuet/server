@@ -42,7 +42,6 @@ class Product(_fr.Resource):
     @ns.marshal_with(_product_list_res)
     def get(self):
         args = product_list_params.parse_args()
-
         res = services.product.get_product_list(**args)
         return res
 

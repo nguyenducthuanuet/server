@@ -3,6 +3,7 @@ import logging
 
 import flask
 import sentry_sdk
+from flask_cors import CORS
 from sentry_sdk.integrations.flask import FlaskIntegration
 
 from boilerplate.extensions.exceptions import NotFoundException, \
@@ -37,6 +38,7 @@ def create_app():
         instance_relative_config=True,
         instance_path=os.path.join(config.ROOT_DIR, 'instance')
     )
+    CORS(app)
     app.json_encoder = helpers.JSONEncoder
     load_app_config(app)
 

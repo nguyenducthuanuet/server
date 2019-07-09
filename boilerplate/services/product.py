@@ -123,17 +123,12 @@ def get_product_list(**kwargs):
     """
     list_query = ProductListQuery()
     list_query.apply_filters(**kwargs)
-    page = kwargs.get('page', 0)
-    page_size = kwargs.get('pageSize', 10)
-    total_records = len(list_query)
-    list_query.paginate(page, page_size)
+
 
     products = list(list_query)
 
     return {
-        'current_page': page,
-        'page_size': page_size,
-        'total_items': total_records,
+
         'products': products
     }
 
