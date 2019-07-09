@@ -6,6 +6,7 @@ from flask_restplus import Api
 
 from boilerplate.extensions.exceptions import global_error_handler
 from .user import ns as user_ns
+from .product import ns as product_ns
 
 __author__ = 'ThucNC'
 _logger = logging.getLogger(__name__)
@@ -28,5 +29,6 @@ def init_app(app, **kwargs):
     :return:
     """
     api.add_namespace(user_ns)
+    api.add_namespace(product_ns)
     app.register_blueprint(api_bp)
     api.error_handlers[Exception] = global_error_handler

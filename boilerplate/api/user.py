@@ -30,3 +30,6 @@ class Users(_fr.Resource):
         user = services.user.create_user(**data)
 
         return user
+
+    def get(self):
+        return {}
